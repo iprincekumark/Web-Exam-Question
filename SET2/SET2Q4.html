@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<script>
+    let count = 0;
+    let tOut;
+    let tOn = 0;
+
+    function timedCount() {
+        document.getElementById("demo").value = count;
+        count++;
+        tOut = setTimeout(timedCount, 1000);
+    }
+
+    function SCount() {
+        if (!tOn) {
+            tOn = 1;
+            timedCount();
+        }
+    }
+
+    function ECount() {
+        clearTimeout(tOut);
+        tOn = 0;
+    }
+</script>
+<body>
+    <h1>Clock Timer</h1>
+    <button onclick="SCount()">START count!</button>
+    <input type="text" id="demo">
+    <button onclick="ECount()">STOP count!</button>
+</body>
+</html>

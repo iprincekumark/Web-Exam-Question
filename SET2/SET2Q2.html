@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FORM</title>
+    </head>
+    <script>
+        function validate() {
+            let First_name = document.myform.firstName.value;
+            let Phone_no = document.myform.phoneNumber.value;
+            let Password1 = document.myform.password1.value;
+            let Password2 = document.myform.password2.value;
+            let pat1 = /[A-Za-z]/;
+            let pat2 = /\d{10}/;
+            let pat3 = /^[a-zA-Z0-9]{8,}$/;
+
+            if(First_name == null || First_name == "" || !pat1.test(First_name)) {
+                alert("Name should not be blank !");
+                return false;
+            }
+            else if( !pat2.test(Phone_no)) {
+                alert("Check the phone number !");
+                return false;
+            }
+            else if( !pat3.test(Password1)) {
+                alert("Check your password !");
+                return false;
+            }
+           else if( Password1 != Password2) {
+               alert("Password doesn't matches !");
+               return false;
+           }
+           else {
+               alert("Thank you for the Submission !");
+           }
+        }
+    </script>
+    <body>
+        <form name="myform" onsubmit="validate()" >
+            First_name: <input type="text" name="firstName">
+            <br><br>
+            Phone_no: <input type="number" name="phoneNumber">
+            <br><br>
+            Password: <input type="password" name="password1">
+            <br><br>
+            Conf-Password: <input type="password" name="password2">
+            <br><br>
+            <input type="submit" name="rejister">
+        </form>
+    </body>
+</html> 
