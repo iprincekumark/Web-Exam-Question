@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function pizzaBill() {
+            let q = document.pizzaInvoice.q.value;
+            let s1 = document.pizzaInvoice.pizzaSize1.value;
+            let s2 = document.pizzaInvoice.pizzaSize2.value;
+            let top1 = document.pizzaInvoice.cheese.value;
+            let top2 = document.pizzaInvoice.olives.value;
+            let top3 = document.pizzaInvoice.onion.value;
+
+            let total=0;
+            if(document.getElementById('pizzaSize1').checked) 
+                total = q*s1;
+            else if(document.getElementById('pizzaSize2').checked) 
+                total = q*s2;
+            if(document.getElementById('cheese').checked) 
+                total += 50;
+            if(document.getElementById('olives').checked)
+                total += 70;
+            if(document.getElementById('onion').checked)
+                total += 90;
+            document.getElementById("demo").innerHTML = total;
+            
+        }
+    </script>
+    <form name="pizzaInvoice" >
+        <h2>Pizza Bill Invoice</h2>
+            Quantity: <input type="number" id="q" >
+        <br><br>
+            Small(Rs 70): <input type="radio" name="size" id="pizzaSize1" value="70">
+            Medium(Rs 90): <input type="radio" name="size" id="pizzaSize2" value="90">
+        
+        <br><br>
+        
+                cheese(Rs 50): <input type="checkbox" name="cheese" id="cheese" value="50">
+        
+        <br><br>
+        
+                olives(Rs 70): <input type="checkbox" name="olives" id="olives" value="70">
+        
+        <br><br>
+        
+                onion(Rs 90): <input type="checkbox" name="onion" id="onion" value="90">
+        
+        <br><br>
+                <button type="button" onclick="pizzaBill()">BILL</button>
+                <br><br>
+    </form>
+    <textarea cols="8" rows="1" id="demo"></textarea>
+</body>
+</html>
