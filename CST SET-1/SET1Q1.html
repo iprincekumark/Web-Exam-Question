@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FORM</title>
+    </head>
+    <script>
+        function validate() {
+            let fN = document.myform.fname.value;
+            let pass = document.myform.pass.value;
+            let email = document.myform.email.value;
+            let pNum = document.myform.pNum.value;
+            let lN = document.myform.lname.value;
+            let address = document.myform.address.value;
+
+            let pat1 = /[A-Za-z]{6,}/; //first name
+            let pat3 = /^[a-zA-Z0-9]{6,}$/; //password
+            let pat4 = /^\w+([.\-]?\w+)*@\w+([.\-]?\w+)*(\.\w{2,3})+$/; //email
+            let pat2 = /\d{10}/; //phone number
+            let pat5 = /[A-Za-z]{1,}/; //last name
+
+
+            if(fN == null || fN == "" || !pat1.test(fN)) {
+                alert("Check your name !");
+                return false;
+            }
+            else if( !pat3.test(pass)) {
+                alert("Check your password !");
+                return false;
+            }
+            else if( !pat4.test(email)) {
+                alert("Check the email !");
+                return false;
+            }
+            else if( !pat2.test(pNum)) {
+                alert("Check the phone number !");
+                return false;
+            }
+            else if(!pat5.test(lN)) {
+                alert("Check the last name !");
+                return false;
+            }
+            else if(!pat5.test(address)) {
+                alert("Check the address !");
+                return false;
+            }
+            else {
+               alert("Thank you for the Submission !");
+            }
+        }
+    </script>
+    <body bgcolor="#d1ff7d">
+        <form name="myform" onsubmit="validate()" style="padding-left: 40%;">
+            <h1><u>Registration Page</u></h1>
+            First Name: <input type="text" name="fname">
+            <br><br>
+            Password: <input type="password" name="pass">
+            <br><br>
+            Email: <input type="text" name="email">
+            <br><br>
+            Phone Number: <input type="number" name="pNum">
+            <br><br>
+            Last Name: <input type="text" name="lname">
+            <br><br>
+            Address: <input type="address" name="address">
+            <br><br>
+            <input type="submit" name="rejister">
+            <br><br>
+        </form>
+    </body>
+</html> 
